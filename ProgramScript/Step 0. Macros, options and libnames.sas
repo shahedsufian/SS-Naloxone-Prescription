@@ -13,23 +13,23 @@ options compress=yes;
 options symbolgen;
 option mprint mlogic;
 
-libname ssdrive 'F:\ssddrive\Opioid Studies';
+libname ssdrive '';
 
-libname rdrive 'R:\Opioid Studies\2025\data';
+libname rdrive '';
 
 /****** APCD and APCD Reference Tables ******/
-libname apcd 'D:\APCD claims\24c';
+libname apcd '';
 
-libname mcr 'D:\APCD claims\Medicare'; /*SS-C; The mcr library has not been used in the subsequent files. Most 
+libname mcr ''; /*SS-C; The mcr library has not been used in the subsequent files. Most 
 										likely Medicare datasets don't need to be used.*/
 
-libname apcdlu ODBC noprompt = "DSN=VIC-DATA-RES;SERVER=VIC-DATA-RES;DATABASE=APCD_ETL" schema = lookups;
+libname apcdlu ODBC noprompt = "" schema = lookups;
 
 /****** NCD Code list CDC sent an updated file June 2020 ******/
-libname lookup "R:\Lookup";
-libname geo 'R:\Geographic info';
+libname lookup "";
+libname geo '';
 
-libname mstrprov ODBC NOPROMPT="UID=;PWD=;DSN=VIC-DATA-RES;SERVER=VIC-DATA-RES;DATABASE=APCD_MasterProvider2021;" SCHEMA=dbo; /*master provider solution */
+libname mstrprov ODBC NOPROMPT="" SCHEMA=dbo; /*master provider solution */
 
 /****** Macro Variables to be used below ******/
 %let st_yr=16; /*??*/
@@ -100,7 +100,7 @@ libname mstrprov ODBC NOPROMPT="UID=;PWD=;DSN=VIC-DATA-RES;SERVER=VIC-DATA-RES;D
 /*NDCs*/
 /*this part only run the first time!
 	NDC list from 2022*/
-libname R_on2022 "R:\Opioid Studies\2022\Data";
+libname R_on2022 "";
 	data ssdrive.NarcanNDC_list;
 	set R_on2022.NarcanNDC_list; /*SS-Q: Do I need to use an updated table here? No*/
 run;

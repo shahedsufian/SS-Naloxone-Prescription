@@ -52,7 +52,7 @@ proc sql;
 		on a.year = b.year;
 quit;
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.providers;
 set ssdrive.provideroutput;
 run;
@@ -163,7 +163,7 @@ order by RX_Dates
 ;
 quit; 
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.Prescriptions;
 set ssdrive.Prescriptionsoutput;
 run;
@@ -245,7 +245,7 @@ select distinct a.Rx_Dates
 	left join ssdrive.By_QTR_temp b on a.Rx_dates = b.Rx_Dates;
 quit;
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.FY&en_yr.quarterly;
 set ssdrive.FY&en_yr.quarterlyoutput;
 run;
@@ -268,7 +268,7 @@ quit;
 
 %combine_counts
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.counties;
 set ssdrive.OpioidbyCountycnts_20%eval(&st_yr.+1)_20&en_yr.;
 run;
@@ -309,7 +309,7 @@ quit;
 
 %OP_by_FY(17,24)
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.charts;
 set ssdrive.OP_Rx_counts_by_FY;
 run;
@@ -329,7 +329,7 @@ order by numrxs desc
 ;
 quit;
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.Narcan_Prescribers_in_FY20&en_yr.;
 set Prescribers_in_FY20&en_yr.;
 run;
@@ -387,7 +387,7 @@ select distinct a.Year
 ;
 quit;
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid NWA only Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.Narcan_Prescribers_in_FY20&en_yr.;
 set ssdrive.provideroutputnwa;
 run;
@@ -500,7 +500,7 @@ order by RX_Dates
 ;
 quit; 
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid NWA only Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.prescriptions;
 set ssdrive.prescriptionsoutput_nwa;
 run;
@@ -587,7 +587,7 @@ select distinct a.Rx_Dates
 	left join By_QTR_temp_nwa b on a.Rx_dates = b.Rx_Dates;
 quit;
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid NWA only Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.fy&en_yr.quarterlyoutput_nwa;
 set ssdrive.fy&en_yr.quarterlyoutput_nwa;
 run;
@@ -613,7 +613,7 @@ quit;
 
 %combine_counts
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid NWA only Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.counties;
 set ssdrive.OpioidbyCountycnts_20%eval(&st_yr.+1)_20&en_yr._nwa;
 run;
@@ -655,7 +655,7 @@ quit;
 
 %OP_by_FY(17,24)
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid NWA only Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.charts;
 set OP_Rx_counts_by_FY_nwa;
 run;
@@ -676,7 +676,7 @@ select distinct Prescribing_Provider,
 ;
 quit;
 
-libname xlout "G:\DATA\AAA Analytic Projects\Opioid Studies\2025\output\Narcan and Opioid NWA only Rxs &xlvers. .xlsx";
+libname xlout "";
 data xlout.narcan_prescribers;
 set Prescribers_in_FY20&en_yr._nwa;
 run;
